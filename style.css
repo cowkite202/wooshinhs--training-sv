@@ -1,0 +1,500 @@
+/* 기본 설정 */
+:root {
+  --primary: #174ea6;
+  --primary-dark: #123b80;
+  --primary-light: #eaf2ff;
+
+  --navy: #17233d;
+  --text: #1f2937;
+  --muted: #6b7280;
+
+  --background: #f4f7fb;
+  --white: #ffffff;
+
+  --border: #d9e1ec;
+  --success: #218c5b;
+
+  --shadow: 0 8px 30px rgba(15, 35, 65, 0.08);
+  --radius: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #edf3fb 0px,
+      #f7f9fc 280px,
+      #f4f7fb 100%
+    );
+
+  color: var(--text);
+
+  font-family:
+    "Noto Sans KR",
+    "Pretendard",
+    "Apple SD Gothic Neo",
+    "Malgun Gothic",
+    sans-serif;
+
+  line-height: 1.7;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+/* 전체 영역 */
+.app-shell {
+  width: min(100%, 900px);
+  margin: 0 auto;
+  padding: 22px 16px 50px;
+}
+
+main {
+  margin-top: 20px;
+}
+
+/* 숨김 */
+.hidden {
+  display: none !important;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      #172b5c,
+      #174ea6 55%,
+      #2b6fd6
+    );
+
+  color: white;
+
+  border-radius: 24px;
+  padding: 34px 30px 28px;
+
+  box-shadow:
+    0 15px 40px
+    rgba(23, 78, 166, 0.22);
+}
+
+.hero-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.badge {
+  display: inline-flex;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255, 255, 255, 0.15);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.2);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero-icon {
+  font-size: 48px;
+  margin-top: 22px;
+}
+
+.hero h1 {
+  margin: 10px 0 8px;
+
+  font-size: clamp(27px, 6vw, 40px);
+
+  line-height: 1.35;
+
+  letter-spacing: -1px;
+}
+
+.hero p {
+  margin: 0;
+  opacity: 0.88;
+  font-size: 15px;
+}
+
+/* 카드 */
+.card {
+  background: var(--white);
+
+  border:
+    1px solid
+    rgba(217, 225, 236, 0.9);
+
+  border-radius: var(--radius);
+
+  padding: 30px 26px;
+
+  box-shadow: var(--shadow);
+}
+
+/* 단계 표시 */
+.step-badge {
+  display: inline-flex;
+
+  padding: 7px 13px;
+
+  margin-bottom: 18px;
+
+  border-radius: 999px;
+
+  background: var(--primary-light);
+
+  color: var(--primary);
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* 아이콘 */
+.section-icon {
+  width: 62px;
+  height: 62px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 15px;
+
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #edf4ff,
+      #dceaff
+    );
+
+  font-size: 30px;
+}
+
+/* 제목 */
+.card h2 {
+  margin: 0 0 8px;
+
+  color: var(--navy);
+
+  font-size: 27px;
+
+  letter-spacing: -0.8px;
+}
+
+.step-description {
+  margin: 0 0 25px;
+  color: var(--muted);
+}
+
+/* 입력 */
+.input-card {
+  padding: 20px;
+
+  border-radius: 15px;
+
+  background: #f7f9fc;
+
+  border:
+    1px solid
+    var(--border);
+}
+
+.input-card label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--navy);
+
+  font-weight: 700;
+}
+
+.input-card label span {
+  color: #e04a4a;
+}
+
+.input-card input {
+  width: 100%;
+
+  padding: 15px 16px;
+
+  border:
+    1px solid
+    var(--border);
+
+  border-radius: 12px;
+
+  outline: none;
+
+  background: white;
+}
+
+.input-card input:focus {
+  border-color: var(--primary);
+
+  box-shadow:
+    0 0 0 4px
+    rgba(23, 78, 166, 0.1);
+}
+
+/* 안내 */
+.notice-card {
+  display: flex;
+
+  gap: 14px;
+
+  align-items: center;
+
+  margin: 18px 0;
+
+  padding: 15px;
+
+  border-radius: 14px;
+
+  background: #f5f8fd;
+
+  border:
+    1px solid
+    #dfe8f5;
+
+  color: #4b5d78;
+
+  font-size: 14px;
+}
+
+.notice-icon {
+  font-size: 25px;
+}
+
+/* 버튼 */
+button {
+  cursor: pointer;
+}
+
+.primary-button {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  padding: 15px 20px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      #2869cc
+    );
+
+  color: white;
+
+  font-weight: 800;
+
+  font-size: 15px;
+
+  box-shadow:
+    0 7px 16px
+    rgba(23, 78, 166, 0.2);
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px
+    rgba(23, 78, 166, 0.28);
+}
+
+/* 교육 내용 */
+.info-box {
+  margin: 20px 0;
+
+  padding: 18px;
+
+  border-radius: 15px;
+
+  background: #f7f9fc;
+
+  border-left:
+    5px solid
+    var(--primary);
+
+  border:
+    1px solid
+    #dfe7f2;
+}
+
+.info-box strong {
+  color: var(--navy);
+}
+
+.info-box p {
+  margin-bottom: 0;
+}
+
+.key-message {
+  margin: 22px 0;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef5ff,
+      #e4efff
+    );
+
+  border:
+    1px solid
+    #cbdcf5;
+}
+
+.key-message strong {
+  color: var(--primary-dark);
+}
+
+.key-message p {
+  margin-bottom: 0;
+}
+
+/* 완료 화면 */
+#completeStep {
+  text-align: center;
+}
+
+.completion-icon {
+  font-size: 65px;
+  margin-bottom: 12px;
+}
+
+.completion-card {
+  margin: 25px 0;
+
+  padding: 25px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eef5ff,
+      #e2edff
+    );
+
+  border:
+    1px solid
+    #c9dcf8;
+}
+
+.completion-card p {
+  margin: 5px 0;
+}
+
+.completion-card strong {
+  display: inline-block;
+
+  margin: 15px 0;
+
+  padding: 9px 18px;
+
+  border-radius: 999px;
+
+  background: white;
+
+  color: var(--primary);
+}
+
+.completion-thanks {
+  color: var(--muted);
+}
+
+/* Footer */
+footer {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 5px;
+
+  margin-top: 30px;
+
+  padding: 25px 10px;
+
+  color: #718096;
+
+  text-align: center;
+
+  font-size: 13px;
+}
+
+footer strong {
+  color: var(--primary);
+  font-size: 15px;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+
+  .app-shell {
+    padding: 12px 10px 35px;
+  }
+
+  .hero {
+    border-radius: 18px;
+    padding: 25px 20px;
+  }
+
+  .hero h1 {
+    font-size: 26px;
+  }
+
+  .card {
+    padding: 23px 17px;
+    border-radius: 16px;
+  }
+
+  .card h2 {
+    font-size: 23px;
+  }
+
+}
