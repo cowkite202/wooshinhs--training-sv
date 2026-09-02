@@ -1,500 +1,734 @@
-/* 기본 설정 */
-:root {
-  --primary: #174ea6;
-  --primary-dark: #123b80;
-  --primary-light: #eaf2ff;
+/* ==========================================
+   우신고등학교 교직원 성폭력 예방교육
+   app.js
+========================================== */
 
-  --navy: #17233d;
-  --text: #1f2937;
-  --muted: #6b7280;
 
-  --background: #f4f7fb;
-  --white: #ffffff;
+/* ==========================================
+   화면 요소
+========================================== */
 
-  --border: #d9e1ec;
-  --success: #218c5b;
+const startStep = document.getElementById("startStep");
+const trainingStep = document.getElementById("trainingStep");
+const educationStep = document.getElementById("educationStep");
+const boundaryStep = document.getElementById("boundaryStep");
+const quizStep = document.getElementById("quizStep");
+const resultStep = document.getElementById("resultStep");
+const commitmentStep = document.getElementById("commitmentStep");
+const completeStep = document.getElementById("completeStep");
 
-  --shadow: 0 8px 30px rgba(15, 35, 65, 0.08);
-  --radius: 18px;
+
+/* ==========================================
+   버튼
+========================================== */
+
+const startButton = document.getElementById("startButton");
+
+const finishTrainingButton =
+  document.getElementById("finishTrainingButton");
+
+const boundaryButton =
+  document.getElementById("boundaryButton");
+
+const quizStartButton =
+  document.getElementById("quizStartButton");
+
+const commitmentButton =
+  document.getElementById("commitmentButton");
+
+const completeEducationButton =
+  document.getElementById("completeEducationButton");
+
+
+/* ==========================================
+   입력 요소
+========================================== */
+
+const nameInput =
+  document.getElementById("name");
+
+const completedName =
+  document.getElementById("completedName");
+
+const completedDate =
+  document.getElementById("completedDate");
+
+
+/* ==========================================
+   퀴즈 요소
+========================================== */
+
+const quizProgress =
+  document.getElementById("quizProgress");
+
+const progressBar =
+  document.getElementById("progressBar");
+
+const questionNumber =
+  document.getElementById("questionNumber");
+
+const questionText =
+  document.getElementById("questionText");
+
+const choices =
+  document.getElementById("choices");
+
+const answerFeedback =
+  document.getElementById("answerFeedback");
+
+const scoreText =
+  document.getElementById("scoreText");
+
+const resultMessage =
+  document.getElementById("resultMessage");
+
+
+/* ==========================================
+   사용자 정보
+========================================== */
+
+let userName = "";
+
+
+/* ==========================================
+   화면 이동 함수
+========================================== */
+
+function showStep(step) {
+
+  const steps = [
+
+    startStep,
+    trainingStep,
+    educationStep,
+    boundaryStep,
+    quizStep,
+    resultStep,
+    commitmentStep,
+    completeStep
+
+  ];
+
+
+  steps.forEach(function (item) {
+
+    item.classList.add("hidden");
+
+  });
+
+
+  step.classList.remove("hidden");
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+  });
+
 }
 
-* {
-  box-sizing: border-box;
-}
 
-html {
-  scroll-behavior: smooth;
-}
+/* ==========================================
+   STEP 1 → STEP 2
+========================================== */
 
-body {
-  margin: 0;
+startButton.addEventListener("click", function () {
 
-  background:
-    linear-gradient(
-      180deg,
-      #edf3fb 0px,
-      #f7f9fc 280px,
-      #f4f7fb 100%
-    );
+  userName = nameInput.value.trim();
 
-  color: var(--text);
 
-  font-family:
-    "Noto Sans KR",
-    "Pretendard",
-    "Apple SD Gothic Neo",
-    "Malgun Gothic",
-    sans-serif;
+  if (userName === "") {
 
-  line-height: 1.7;
-}
+    alert("성명을 입력해 주세요.");
 
-button,
-input {
-  font: inherit;
-}
+    nameInput.focus();
 
-/* 전체 영역 */
-.app-shell {
-  width: min(100%, 900px);
-  margin: 0 auto;
-  padding: 22px 16px 50px;
-}
+    return;
 
-main {
-  margin-top: 20px;
-}
-
-/* 숨김 */
-.hidden {
-  display: none !important;
-}
-
-/* HERO */
-.hero {
-  position: relative;
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      135deg,
-      #172b5c,
-      #174ea6 55%,
-      #2b6fd6
-    );
-
-  color: white;
-
-  border-radius: 24px;
-  padding: 34px 30px 28px;
-
-  box-shadow:
-    0 15px 40px
-    rgba(23, 78, 166, 0.22);
-}
-
-.hero-top {
-  display: flex;
-  justify-content: space-between;
-}
-
-.badge {
-  display: inline-flex;
-
-  padding: 7px 13px;
-
-  border-radius: 999px;
-
-  background:
-    rgba(255, 255, 255, 0.15);
-
-  border:
-    1px solid
-    rgba(255, 255, 255, 0.2);
-
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.hero-icon {
-  font-size: 48px;
-  margin-top: 22px;
-}
-
-.hero h1 {
-  margin: 10px 0 8px;
-
-  font-size: clamp(27px, 6vw, 40px);
-
-  line-height: 1.35;
-
-  letter-spacing: -1px;
-}
-
-.hero p {
-  margin: 0;
-  opacity: 0.88;
-  font-size: 15px;
-}
-
-/* 카드 */
-.card {
-  background: var(--white);
-
-  border:
-    1px solid
-    rgba(217, 225, 236, 0.9);
-
-  border-radius: var(--radius);
-
-  padding: 30px 26px;
-
-  box-shadow: var(--shadow);
-}
-
-/* 단계 표시 */
-.step-badge {
-  display: inline-flex;
-
-  padding: 7px 13px;
-
-  margin-bottom: 18px;
-
-  border-radius: 999px;
-
-  background: var(--primary-light);
-
-  color: var(--primary);
-
-  font-size: 12px;
-  font-weight: 800;
-}
-
-/* 아이콘 */
-.section-icon {
-  width: 62px;
-  height: 62px;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 15px;
-
-  border-radius: 18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #edf4ff,
-      #dceaff
-    );
-
-  font-size: 30px;
-}
-
-/* 제목 */
-.card h2 {
-  margin: 0 0 8px;
-
-  color: var(--navy);
-
-  font-size: 27px;
-
-  letter-spacing: -0.8px;
-}
-
-.step-description {
-  margin: 0 0 25px;
-  color: var(--muted);
-}
-
-/* 입력 */
-.input-card {
-  padding: 20px;
-
-  border-radius: 15px;
-
-  background: #f7f9fc;
-
-  border:
-    1px solid
-    var(--border);
-}
-
-.input-card label {
-  display: block;
-
-  margin-bottom: 8px;
-
-  color: var(--navy);
-
-  font-weight: 700;
-}
-
-.input-card label span {
-  color: #e04a4a;
-}
-
-.input-card input {
-  width: 100%;
-
-  padding: 15px 16px;
-
-  border:
-    1px solid
-    var(--border);
-
-  border-radius: 12px;
-
-  outline: none;
-
-  background: white;
-}
-
-.input-card input:focus {
-  border-color: var(--primary);
-
-  box-shadow:
-    0 0 0 4px
-    rgba(23, 78, 166, 0.1);
-}
-
-/* 안내 */
-.notice-card {
-  display: flex;
-
-  gap: 14px;
-
-  align-items: center;
-
-  margin: 18px 0;
-
-  padding: 15px;
-
-  border-radius: 14px;
-
-  background: #f5f8fd;
-
-  border:
-    1px solid
-    #dfe8f5;
-
-  color: #4b5d78;
-
-  font-size: 14px;
-}
-
-.notice-icon {
-  font-size: 25px;
-}
-
-/* 버튼 */
-button {
-  cursor: pointer;
-}
-
-.primary-button {
-  width: 100%;
-
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  gap: 9px;
-
-  padding: 15px 20px;
-
-  border: none;
-
-  border-radius: 12px;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--primary),
-      #2869cc
-    );
-
-  color: white;
-
-  font-weight: 800;
-
-  font-size: 15px;
-
-  box-shadow:
-    0 7px 16px
-    rgba(23, 78, 166, 0.2);
-
-  transition:
-    transform 0.2s,
-    box-shadow 0.2s;
-}
-
-.primary-button:hover {
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 10px 22px
-    rgba(23, 78, 166, 0.28);
-}
-
-/* 교육 내용 */
-.info-box {
-  margin: 20px 0;
-
-  padding: 18px;
-
-  border-radius: 15px;
-
-  background: #f7f9fc;
-
-  border-left:
-    5px solid
-    var(--primary);
-
-  border:
-    1px solid
-    #dfe7f2;
-}
-
-.info-box strong {
-  color: var(--navy);
-}
-
-.info-box p {
-  margin-bottom: 0;
-}
-
-.key-message {
-  margin: 22px 0;
-
-  padding: 20px;
-
-  border-radius: 16px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eef5ff,
-      #e4efff
-    );
-
-  border:
-    1px solid
-    #cbdcf5;
-}
-
-.key-message strong {
-  color: var(--primary-dark);
-}
-
-.key-message p {
-  margin-bottom: 0;
-}
-
-/* 완료 화면 */
-#completeStep {
-  text-align: center;
-}
-
-.completion-icon {
-  font-size: 65px;
-  margin-bottom: 12px;
-}
-
-.completion-card {
-  margin: 25px 0;
-
-  padding: 25px;
-
-  border-radius: 20px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #eef5ff,
-      #e2edff
-    );
-
-  border:
-    1px solid
-    #c9dcf8;
-}
-
-.completion-card p {
-  margin: 5px 0;
-}
-
-.completion-card strong {
-  display: inline-block;
-
-  margin: 15px 0;
-
-  padding: 9px 18px;
-
-  border-radius: 999px;
-
-  background: white;
-
-  color: var(--primary);
-}
-
-.completion-thanks {
-  color: var(--muted);
-}
-
-/* Footer */
-footer {
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  gap: 5px;
-
-  margin-top: 30px;
-
-  padding: 25px 10px;
-
-  color: #718096;
-
-  text-align: center;
-
-  font-size: 13px;
-}
-
-footer strong {
-  color: var(--primary);
-  font-size: 15px;
-}
-
-/* 모바일 */
-@media (max-width: 600px) {
-
-  .app-shell {
-    padding: 12px 10px 35px;
   }
 
-  .hero {
-    border-radius: 18px;
-    padding: 25px 20px;
+
+  showStep(trainingStep);
+
+});
+
+
+/* ==========================================
+   STEP 2 → STEP 3
+========================================== */
+
+finishTrainingButton.addEventListener("click", function () {
+
+  showStep(educationStep);
+
+});
+
+
+/* ==========================================
+   STEP 3 → STEP 4
+========================================== */
+
+boundaryButton.addEventListener("click", function () {
+
+  showStep(boundaryStep);
+
+});
+
+
+/* ==========================================
+   STEP 4 → STEP 5
+========================================== */
+
+quizStartButton.addEventListener("click", function () {
+
+  currentQuestion = 0;
+
+  score = 0;
+
+  showStep(quizStep);
+
+  showQuestion();
+
+});
+
+
+/* ==========================================
+   퀴즈 문제
+========================================== */
+
+const questions = [
+
+  {
+    question:
+      "성폭력 예방을 위해 가장 바람직한 태도는 무엇입니까?",
+
+    choices: [
+
+      "상대방의 의사를 확인하고 경계를 존중한다.",
+      "친한 사이면 동의가 필요 없다.",
+      "불편함을 표현하지 않으면 괜찮다.",
+      "상대방이 참아야 한다."
+
+    ],
+
+    answer: 0
+  },
+
+
+  {
+    question:
+      "직장 내 성희롱이 발생했을 때 적절하지 않은 행동은 무엇입니까?",
+
+    choices: [
+
+      "신뢰할 수 있는 담당자에게 상담한다.",
+      "피해자의 이야기를 경청한다.",
+      "피해자에 대한 소문을 퍼뜨린다.",
+      "관련 절차를 확인한다."
+
+    ],
+
+    answer: 2
+  },
+
+
+  {
+    question:
+      "성폭력 피해 발생 시 2차 피해에 해당할 수 있는 것은 무엇입니까?",
+
+    choices: [
+
+      "피해 사실을 믿고 지지한다.",
+      "피해자에게 책임을 묻거나 비난한다.",
+      "상담기관 정보를 안내한다.",
+      "개인정보를 보호한다."
+
+    ],
+
+    answer: 1
+  },
+
+
+  {
+    question:
+      "디지털 성범죄 예방과 관련하여 옳은 것은 무엇입니까?",
+
+    choices: [
+
+      "동의 없는 촬영·유포·공유는 해서는 안 된다.",
+      "친구끼리는 자유롭게 공유해도 된다.",
+      "장난으로 촬영해도 문제가 없다.",
+      "삭제 요청은 무시해도 된다."
+
+    ],
+
+    answer: 0
+  },
+
+
+  {
+    question:
+      "상대방이 불편함이나 거절 의사를 표현했을 때 가장 적절한 행동은 무엇입니까?",
+
+    choices: [
+
+      "상대방을 설득한다.",
+      "즉시 행동을 중단하고 의사를 존중한다.",
+      "농담이라고 말하며 계속한다.",
+      "다른 사람에게 이야기를 퍼뜨린다."
+
+    ],
+
+    answer: 1
+  },
+
+
+  {
+    question:
+      "친한 관계에서는 상대방의 동의가 필요하지 않다는 생각은 옳습니까?",
+
+    choices: [
+
+      "옳다.",
+      "상황에 따라 필요 없다.",
+      "친한 관계라도 상대방의 의사와 동의가 중요하다.",
+      "상대방이 말하지 않으면 동의한 것이다."
+
+    ],
+
+    answer: 2
+  },
+
+
+  {
+    question:
+      "성폭력 피해자의 이야기를 들을 때 바람직한 태도는 무엇입니까?",
+
+    choices: [
+
+      "피해자의 행동을 비난한다.",
+      "왜 그런 상황이 발생했는지 책임을 묻는다.",
+      "피해자의 이야기를 경청하고 지지한다.",
+      "다른 사람에게 내용을 공유한다."
+
+    ],
+
+    answer: 2
+  },
+
+
+  {
+    question:
+      "개인의 사진이나 영상을 공유하기 전에 필요한 것은 무엇입니까?",
+
+    choices: [
+
+      "상대방의 명확한 동의",
+      "친구의 허락",
+      "재미있는지 여부",
+      "많은 사람이 볼 수 있는지 여부"
+
+    ],
+
+    answer: 0
+  },
+
+
+  {
+    question:
+      "성폭력 예방을 위해 학교 구성원이 함께 해야 할 일은 무엇입니까?",
+
+    choices: [
+
+      "문제가 생겨도 개인적인 일로 생각한다.",
+      "서로의 경계를 존중하고 안전한 문화를 만든다.",
+      "피해자의 행동을 먼저 의심한다.",
+      "불편한 상황을 방관한다."
+
+    ],
+
+    answer: 1
+  },
+
+
+  {
+    question:
+      "안전하고 존중받는 학교 문화를 만들기 위한 가장 중요한 태도는 무엇입니까?",
+
+    choices: [
+
+      "서로의 의사와 경계를 존중한다.",
+      "친한 사람의 행동은 모두 허용한다.",
+      "불편함은 개인이 참아야 한다.",
+      "성적인 농담은 항상 괜찮다."
+
+    ],
+
+    answer: 0
   }
 
-  .hero h1 {
-    font-size: 26px;
+];
+
+
+/* ==========================================
+   퀴즈 상태
+========================================== */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+
+/* ==========================================
+   문제 표시
+========================================== */
+
+function showQuestion() {
+
+  const current =
+    questions[currentQuestion];
+
+
+  questionNumber.textContent =
+    `QUESTION ${currentQuestion + 1}`;
+
+
+  questionText.textContent =
+    current.question;
+
+
+  quizProgress.textContent =
+    `${currentQuestion + 1} / ${questions.length}`;
+
+
+  const progress =
+    ((currentQuestion + 1) / questions.length) * 100;
+
+
+  progressBar.style.width =
+    `${progress}%`;
+
+
+  choices.innerHTML = "";
+
+
+  answerFeedback.innerHTML = "";
+
+
+  current.choices.forEach(function (choice, index) {
+
+    const button =
+      document.createElement("button");
+
+
+    button.type = "button";
+
+
+    button.className =
+      "choice-button";
+
+
+    button.innerHTML =
+      `<span class="choice-number">
+        ${index + 1}
+      </span>
+      <span>
+        ${choice}
+      </span>`;
+
+
+    button.addEventListener("click", function () {
+
+      checkAnswer(index);
+
+    });
+
+
+    choices.appendChild(button);
+
+  });
+
+}
+
+
+/* ==========================================
+   정답 확인
+========================================== */
+
+function checkAnswer(selectedAnswer) {
+
+  const current =
+    questions[currentQuestion];
+
+
+  const allButtons =
+    document.querySelectorAll(
+      ".choice-button"
+    );
+
+
+  allButtons.forEach(function (button) {
+
+    button.disabled = true;
+
+  });
+
+
+  const isCorrect =
+    selectedAnswer === current.answer;
+
+
+  if (isCorrect) {
+
+    score++;
+
+
+    answerFeedback.innerHTML = `
+
+      <div class="correct-box">
+
+        <strong>
+          🎉 정답입니다!
+        </strong>
+
+        <p>
+          교육 내용을 잘 이해하셨습니다.
+        </p>
+
+      </div>
+
+      <button
+        type="button"
+        class="next-question-button"
+        id="nextQuestionButton"
+      >
+        다음 문제 →
+      </button>
+
+    `;
+
+  } else {
+
+    answerFeedback.innerHTML = `
+
+      <div class="wrong-box">
+
+        <strong>
+          다시 확인해 보세요.
+        </strong>
+
+        <p>
+          정답은
+          <strong>
+            ${current.answer + 1}번
+          </strong>
+          입니다.
+        </p>
+
+      </div>
+
+      <button
+        type="button"
+        class="next-question-button"
+        id="nextQuestionButton"
+      >
+        다음 문제 →
+      </button>
+
+    `;
+
   }
 
-  .card {
-    padding: 23px 17px;
-    border-radius: 16px;
+
+  document
+    .getElementById("nextQuestionButton")
+    .addEventListener(
+      "click",
+      nextQuestion
+    );
+
+}
+
+
+/* ==========================================
+   다음 문제
+========================================== */
+
+function nextQuestion() {
+
+  currentQuestion++;
+
+
+  if (
+    currentQuestion <
+    questions.length
+  ) {
+
+    showQuestion();
+
+  } else {
+
+    showResult();
+
   }
 
-  .card h2 {
-    font-size: 23px;
+}
+
+
+/* ==========================================
+   퀴즈 결과
+========================================== */
+
+function showResult() {
+
+  showStep(resultStep);
+
+
+  const finalScore =
+    score * 10;
+
+
+  scoreText.textContent =
+    finalScore;
+
+
+  if (finalScore === 100) {
+
+    resultMessage.textContent =
+      "🎉 모든 문제를 맞혔습니다! 교육 내용을 매우 잘 이해하셨습니다.";
+
+  } else if (finalScore >= 70) {
+
+    resultMessage.textContent =
+      "교육 내용을 잘 이해하셨습니다.";
+
+  } else {
+
+    resultMessage.textContent =
+      "교육 내용을 다시 한번 확인해 주세요.";
+
   }
+
+}
+
+
+/* ==========================================
+   STEP 6 → STEP 7
+========================================== */
+
+commitmentButton.addEventListener("click", function () {
+
+  showStep(commitmentStep);
+
+});
+
+
+/* ==========================================
+   STEP 7 → STEP 8
+========================================== */
+
+completeEducationButton.addEventListener(
+  "click",
+  function () {
+
+    const checks =
+      document.querySelectorAll(
+        ".commitmentCheck"
+      );
+
+
+    let allChecked = true;
+
+
+    checks.forEach(function (check) {
+
+      if (!check.checked) {
+
+        allChecked = false;
+
+      }
+
+    });
+
+
+    if (!allChecked) {
+
+      alert(
+        "실천 다짐 항목을 모두 확인해 주세요."
+      );
+
+      return;
+
+    }
+
+
+    showComplete();
+
+  }
+);
+
+
+/* ==========================================
+   최종 완료 화면
+========================================== */
+
+function showComplete() {
+
+  showStep(completeStep);
+
+
+  completedName.textContent =
+    userName;
+
+
+  const now =
+    new Date();
+
+
+  const year =
+    now.getFullYear();
+
+
+  const month =
+    String(
+      now.getMonth() + 1
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  const day =
+    String(
+      now.getDate()
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  const hour =
+    String(
+      now.getHours()
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  const minute =
+    String(
+      now.getMinutes()
+    ).padStart(
+      2,
+      "0"
+    );
+
+
+  completedDate.textContent =
+    `완료 일시: ${year}.${month}.${day} ${hour}:${minute}`;
 
 }
