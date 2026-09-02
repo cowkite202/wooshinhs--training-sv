@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,84 +9,72 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
 
 <div class="app-shell">
 
-  <!-- =====================================================
-       상단 헤더
-  ===================================================== -->
-
+  <!-- 상단 -->
   <header class="hero">
-
     <div class="hero-top">
-
-      <span class="badge">
-        2026 예방교육
-      </span>
-
-      <span id="stepText">
-        교육 시작
-      </span>
-
+      <span class="badge">2026 예방교육</span>
+      <span class="hero-step">우신고등학교</span>
     </div>
 
-
-    <div class="hero-icon">
-      🛡️
-    </div>
-
+    <div class="hero-icon">🛡️</div>
 
     <h1>
       우신고등학교<br>
       교직원 성폭력 예방교육
     </h1>
 
-
     <p>
-      온라인 영상 시청 · 교육 내용 · 확인 퀴즈 · 실천 다짐
+      교육 내용을 확인하고 퀴즈에 참여해 주세요.
     </p>
 
-  </header>
+    <div class="hero-info">
+      <div>
+        <strong>8</strong>
+        <span>교육 단계</span>
+      </div>
 
+      <div>
+        <strong>10</strong>
+        <span>확인 문항</span>
+      </div>
+
+      <div>
+        <strong>2026</strong>
+        <span>예방교육</span>
+      </div>
+    </div>
+  </header>
 
 
   <main>
 
+    <!-- =====================================
+         STEP 1 : 이름 입력
+    ====================================== -->
 
-    <!-- =====================================================
-         STEP 1 · 교육 시작
-    ===================================================== -->
-
-    <section id="startStep" class="card">
+    <section id="startStep" class="card start-card">
 
       <div class="step-badge">
         STEP 1 · 교육 시작
       </div>
 
+      <div class="section-icon">👤</div>
 
-      <div class="section-icon">
-        👤
-      </div>
-
-
-      <h2>
-        성폭력 예방교육
-      </h2>
-
+      <h2>성명 입력</h2>
 
       <p class="step-description">
-        교육을 시작하기 전에 성명을 입력해 주세요.
+        교육 이수 확인을 위해 성명을 입력해 주세요.
       </p>
-
 
       <div class="input-card">
 
         <label for="name">
           성명 <span>*</span>
         </label>
-
 
         <input
           type="text"
@@ -98,19 +85,13 @@
 
       </div>
 
-
       <div class="notice-card">
-
-        <div class="notice-icon">
-          🔒
-        </div>
+        <div class="notice-icon">🔒</div>
 
         <div>
-          이름은 교육 이수 확인을 위해서만 사용됩니다.
+          교육 이수 확인을 위해 성명만 기록합니다.
         </div>
-
       </div>
-
 
       <button
         type="button"
@@ -123,542 +104,293 @@
     </section>
 
 
+    <!-- =====================================
+         STEP 2 : 교육 영상
+    ====================================== -->
 
-    <!-- =====================================================
-         STEP 2 · 영상 시청
-    ===================================================== -->
-
-    <section id="videoStep" class="card hidden">
+    <section id="trainingStep" class="card hidden">
 
       <div class="step-badge">
-        STEP 1 · 영상 시청
+        STEP 2 · 교육 시청
       </div>
 
+      <div class="section-icon">🎬</div>
 
-      <div class="section-icon">
-        🎬
-      </div>
-
-
-      <h2>
-        교육 영상 시청
-      </h2>
-
+      <h2>성폭력 예방교육</h2>
 
       <p class="step-description">
-        아래 영상을 시청한 후 다음 단계로 이동해 주세요.
+        아래 교육 내용을 확인한 후 다음 단계로 진행해 주세요.
+      </p>
+
+      <div class="visual-card visual-blue">
+        <div class="visual-icon">🛡️</div>
+
+        <div class="visual-title">
+          서로를 존중하는 학교 문화
+        </div>
+
+        <div class="visual-text">
+          성폭력 예방은 상대방의 의사를 존중하고
+          서로의 경계를 지키는 것에서 시작됩니다.
+        </div>
+      </div>
+
+      <div class="info-box">
+        <strong>성폭력 예방의 기본 원칙</strong>
+
+        <p>
+          상대방의 의사를 존중하고,
+          명확한 동의 없이 불편하거나 성적인 언행을 하지 않습니다.
+        </p>
+      </div>
+
+      <div class="key-message">
+        <strong>핵심 메시지</strong>
+
+        <p>
+          서로의 경계를 존중하고,
+          안전하고 존중받는 학교 문화를 함께 만들어 갑니다.
+        </p>
+      </div>
+
+      <button
+        type="button"
+        class="primary-button"
+        id="finishTrainingButton"
+      >
+        다음 교육 내용 →
+      </button>
+
+    </section>
+
+
+    <!-- =====================================
+         STEP 3 : 교육 내용
+    ====================================== -->
+
+    <section id="educationStep" class="card hidden">
+
+      <div class="step-badge">
+        STEP 3 · 예방교육 핵심 내용
+      </div>
+
+      <div class="section-icon">📚</div>
+
+      <h2>성폭력 예방교육 핵심 내용</h2>
+
+      <p class="step-description">
+        안전하고 존중받는 조직 문화를 위해 알아야 할 핵심 내용입니다.
       </p>
 
 
-      <div class="video-wrap">
+      <div class="visual-card visual-purple">
+        <div class="visual-icon">🤝</div>
 
-        <!--
-          YouTube 영상 주소를 src에 넣으면 됩니다.
-        -->
-
-        <div class="video-placeholder">
-
-          <div class="play-icon">
-            ▶
-          </div>
-
-          <p>
-            성폭력 예방교육 영상
-          </p>
-
+        <div class="visual-title">
+          1. 상대방의 의사 존중
         </div>
 
+        <div class="visual-text">
+          친한 관계라고 하더라도 상대방의 의사를 확인하고 존중해야 합니다.
+        </div>
       </div>
 
 
-      <label class="confirm-check">
+      <div class="visual-card visual-blue">
+        <div class="visual-icon">🗣️</div>
 
-        <input
-          type="checkbox"
-          id="videoCheck"
-        >
+        <div class="visual-title">
+          2. 불편한 언행 금지
+        </div>
 
-        <span>
-          교육 영상을 시청했습니다.
-        </span>
+        <div class="visual-text">
+          상대방이 불편함을 느낄 수 있는 성적인 농담이나 언행을 하지 않습니다.
+        </div>
+      </div>
 
-      </label>
+
+      <div class="visual-card visual-green">
+        <div class="visual-icon">🔐</div>
+
+        <div class="visual-title">
+          3. 개인정보 보호
+        </div>
+
+        <div class="visual-text">
+          피해 사실이나 개인 정보를 다른 사람에게 함부로 알리지 않습니다.
+        </div>
+      </div>
+
+
+      <div class="visual-card visual-orange">
+        <div class="visual-icon">💬</div>
+
+        <div class="visual-title">
+          4. 피해자 지지
+        </div>
+
+        <div class="visual-text">
+          피해자의 이야기를 경청하고 비난하거나 책임을 묻지 않습니다.
+        </div>
+      </div>
+
+
+      <div class="visual-card visual-pink">
+        <div class="visual-icon">📱</div>
+
+        <div class="visual-title">
+          5. 디지털 성범죄 예방
+        </div>
+
+        <div class="visual-text">
+          동의 없는 촬영, 저장, 유포, 공유는 해서는 안 됩니다.
+        </div>
+      </div>
+
+
+      <div class="visual-card visual-teal">
+        <div class="visual-icon">🏫</div>
+
+        <div class="visual-title">
+          6. 안전한 학교 문화
+        </div>
+
+        <div class="visual-text">
+          서로 존중하고 차별과 폭력 없는 안전한 학교 문화를 만들어 갑니다.
+        </div>
+      </div>
 
 
       <button
         type="button"
         class="primary-button"
-        id="videoNextButton"
-        disabled
+        id="boundaryButton"
       >
-        다음 단계 →
+        경계 존중 교육 →
       </button>
 
     </section>
 
 
+    <!-- =====================================
+         STEP 4 : 경계 존중
+    ====================================== -->
 
-    <!-- =====================================================
-         STEP 3 · 성폭력의 이해
-    ===================================================== -->
-
-    <section id="content1" class="card hidden training-step">
+    <section id="boundaryStep" class="card hidden">
 
       <div class="step-badge">
-        STEP 2 · 교육 내용 1
+        STEP 4 · 경계 존중
       </div>
 
+      <div class="section-icon">🫶</div>
 
-      <div class="progress-card">
+      <h2>서로의 경계를 존중합니다</h2>
 
-        <div class="progress-header">
-
-          <span>
-            교육 진행률
-          </span>
-
-          <span>
-            1 / 8
-          </span>
-
-        </div>
-
-        <div class="progress-line">
-          <span style="width:12%;"></span>
-        </div>
-
-      </div>
+      <p class="step-description">
+        모든 관계에서 상대방의 의사와 경계를 존중하는 것이 중요합니다.
+      </p>
 
 
-      <div class="visual-card visual-purple">
+      <div class="boundary-item">
 
-        <div class="visual-icon">
-          🛡️
-        </div>
-
-        <div class="visual-title">
-          존중으로 예방이 시작됩니다
-        </div>
-
-        <div class="visual-text">
-          성폭력을 예방하기 위해서는
-          서로의 의사와 경계를 존중하는 태도가 필요합니다.
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <strong>
-          핵심 기억하기
-        </strong>
+        <h3>① 상대방의 의사 확인</h3>
 
         <p>
-          나의 의도보다 상대방의 의사와
-          경계를 먼저 생각합니다.
+          상대방이 원하지 않는 행동은 하지 않으며,
+          행동하기 전에 상대방의 의사를 확인합니다.
         </p>
 
       </div>
 
 
-      <label class="confirm-check">
+      <div class="boundary-item">
 
-        <input type="checkbox" class="content-check">
-
-        <span>
-          위 내용을 확인하고 숙지했습니다.
-        </span>
-
-      </label>
-
-
-      <button
-        type="button"
-        class="primary-button next-training"
-      >
-        다음 페이지 →
-      </button>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         STEP 4 · 직장 내 성희롱
-    ===================================================== -->
-
-    <section id="content2" class="card hidden training-step">
-
-      <div class="step-badge">
-        STEP 2 · 교육 내용 2
-      </div>
-
-
-      <div class="progress-card">
-
-        <div class="progress-header">
-
-          <span>
-            교육 진행률
-          </span>
-
-          <span>
-            2 / 8
-          </span>
-
-        </div>
-
-        <div class="progress-line">
-          <span style="width:25%;"></span>
-        </div>
-
-      </div>
-
-
-      <div class="visual-card visual-blue">
-
-        <div class="visual-icon">
-          🤝
-        </div>
-
-        <div class="visual-title">
-          서로의 존엄을 존중합니다
-        </div>
-
-        <div class="visual-text">
-          직장 내 모든 구성원은
-          서로를 존중하는 환경을 만들어야 합니다.
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <strong>
-          주요 내용
-        </strong>
-
-        <ul>
-          <li>상대방의 의사를 존중합니다.</li>
-          <li>불필요한 신체 접촉을 하지 않습니다.</li>
-          <li>성적인 농담이나 표현을 주의합니다.</li>
-        </ul>
-
-      </div>
-
-
-      <label class="confirm-check">
-
-        <input type="checkbox" class="content-check">
-
-        <span>
-          위 내용을 확인하고 숙지했습니다.
-        </span>
-
-      </label>
-
-
-      <button
-        type="button"
-        class="primary-button next-training"
-      >
-        다음 페이지 →
-      </button>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         STEP 5 · 동의와 개인정보
-    ===================================================== -->
-
-    <section id="content3" class="card hidden training-step">
-
-      <div class="step-badge">
-        STEP 2 · 교육 내용 3
-      </div>
-
-
-      <div class="progress-card">
-
-        <div class="progress-header">
-
-          <span>교육 진행률</span>
-          <span>3 / 8</span>
-
-        </div>
-
-        <div class="progress-line">
-          <span style="width:38%;"></span>
-        </div>
-
-      </div>
-
-
-      <div class="visual-card visual-green">
-
-        <div class="visual-icon">
-          ✋
-        </div>
-
-        <div class="visual-title">
-          명확한 동의가 중요합니다
-        </div>
-
-        <div class="visual-text">
-          동의는 상대방의 자유로운 의사에 따라
-          이루어져야 합니다.
-        </div>
-
-      </div>
-
-
-      <div class="key-message">
-
-        <strong>
-          핵심 기억하기
-        </strong>
+        <h3>② 거절 의사 존중</h3>
 
         <p>
-          거절이나 불편함의 표현을
-          존중하는 것이 중요합니다.
+          상대방이 거절하거나 불편함을 표현했다면
+          즉시 행동을 중단해야 합니다.
         </p>
 
       </div>
 
 
-      <label class="confirm-check">
+      <div class="boundary-item">
 
-        <input type="checkbox" class="content-check">
-
-        <span>위 내용을 확인했습니다.</span>
-
-      </label>
-
-
-      <button
-        type="button"
-        class="primary-button next-training"
-      >
-        다음 페이지 →
-      </button>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         STEP 6 · 피해자 보호
-    ===================================================== -->
-
-    <section id="content4" class="card hidden training-step">
-
-      <div class="step-badge">
-        STEP 2 · 교육 내용 4
-      </div>
-
-
-      <div class="visual-card visual-orange">
-
-        <div class="visual-icon">
-          🧡
-        </div>
-
-        <div class="visual-title">
-          피해자의 입장에서 생각합니다
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <strong>
-          피해 발생 시
-        </strong>
+        <h3>③ 친한 관계도 예외가 아닙니다</h3>
 
         <p>
-          피해자를 비난하거나 책임을 묻지 않고,
-          이야기를 경청하며 필요한 도움을 받을 수 있도록
-          지원합니다.
+          친하거나 오랫동안 알고 지낸 관계라도
+          상대방의 동의와 경계는 항상 존중해야 합니다.
         </p>
 
       </div>
 
 
-      <label class="confirm-check">
+      <div class="boundary-item boundary-final">
 
-        <input type="checkbox" class="content-check">
-
-        <span>위 내용을 확인했습니다.</span>
-
-      </label>
-
-
-      <button
-        type="button"
-        class="primary-button next-training"
-      >
-        다음 페이지 →
-      </button>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         STEP 7 · 디지털 성범죄
-    ===================================================== -->
-
-    <section id="content5" class="card hidden training-step">
-
-      <div class="step-badge">
-        STEP 2 · 교육 내용 5
-      </div>
-
-
-      <div class="visual-card visual-pink">
-
-        <div class="visual-icon">
-          📱
-        </div>
-
-        <div class="visual-title">
-          온라인에서도 책임은 같습니다
-        </div>
-
-        <div class="visual-text">
-          동의 없는 촬영·유포·공유는
-          절대 해서는 안 됩니다.
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <strong>
-          핵심 기억하기
-        </strong>
+        <h3>💡 기억하세요</h3>
 
         <p>
-          온라인에서의 행동도 현실과 동일한
-          책임과 존중이 필요합니다.
+          <strong>
+            상대방의 침묵은 동의가 아닙니다.
+          </strong>
+        </p>
+
+        <p class="boundary-key">
+          명확한 의사 확인과 존중이 안전한 관계의 시작입니다.
         </p>
 
       </div>
 
 
-      <label class="confirm-check">
-
-        <input type="checkbox" class="content-check">
-
-        <span>위 내용을 확인했습니다.</span>
-
-      </label>
-
-
       <button
         type="button"
-        class="primary-button next-training"
+        class="primary-button"
+        id="quizStartButton"
       >
-        다음 페이지 →
+        확인 퀴즈 시작 →
       </button>
 
     </section>
 
 
-
-    <!-- =====================================================
-         STEP 8 · 안전한 학교문화
-    ===================================================== -->
-
-    <section id="content6" class="card hidden training-step">
-
-      <div class="step-badge">
-        STEP 2 · 교육 내용 6
-      </div>
-
-
-      <div class="visual-card visual-teal">
-
-        <div class="visual-icon">
-          🌱
-        </div>
-
-        <div class="visual-title">
-          안전한 학교문화를 만듭니다
-        </div>
-
-      </div>
-
-
-      <div class="info-box">
-
-        <strong>
-          실천하기
-        </strong>
-
-        <ol>
-          <li>상대방의 경계를 존중하기</li>
-          <li>불편함을 느끼면 알리기</li>
-          <li>소문과 2차 피해를 막기</li>
-          <li>서로의 안전을 지키기</li>
-        </ol>
-
-      </div>
-
-
-      <label class="confirm-check">
-
-        <input type="checkbox" class="content-check">
-
-        <span>위 내용을 확인하고 숙지했습니다.</span>
-
-      </label>
-
-
-      <button
-        type="button"
-        class="primary-button next-training"
-      >
-        교육 내용 완료 →
-      </button>
-
-    </section>
-
-
-
-    <!-- =====================================================
-         STEP 9 · 퀴즈
-    ===================================================== -->
+    <!-- =====================================
+         STEP 5 : 퀴즈
+    ====================================== -->
 
     <section id="quizStep" class="card hidden">
 
       <div class="step-badge purple-badge">
-        STEP 3 · 확인 퀴즈
+        STEP 5 · 확인 퀴즈
       </div>
+
+      <div class="section-icon">📝</div>
+
+      <h2>교육 내용 확인</h2>
+
+      <p class="step-description">
+        교육 내용을 바탕으로 문제를 풀어주세요.
+      </p>
 
 
       <div class="progress-card">
 
         <div class="progress-header">
 
-          <span>
-            확인 퀴즈
-          </span>
+          <span>진행 상황</span>
 
-          <span id="quizProgress">
-            1 / 3
+          <span
+            id="quizProgress"
+            class="quiz-progress"
+          >
+            1 / 10
           </span>
 
         </div>
 
         <div class="progress-line">
-          <span id="quizBar"></span>
+          <span id="progressBar"></span>
         </div>
 
       </div>
@@ -666,93 +398,60 @@
 
       <div class="question-card">
 
-        <h3>
-          확인 퀴즈
+        <h3 id="questionNumber">
+          QUESTION 1
         </h3>
 
-
         <div
-          id="quizQuestion"
+          id="questionText"
           class="question-text"
         >
         </div>
 
-
         <div
-          id="quizChoices"
+          id="choices"
           class="choices"
         >
         </div>
 
+        <div id="answerFeedback"></div>
+
       </div>
-
-
-      <div id="answerFeedback"></div>
 
     </section>
 
 
+    <!-- =====================================
+         STEP 6 : 퀴즈 결과
+    ====================================== -->
 
-    <!-- =====================================================
-         STEP 10 · 실천 다짐
-    ===================================================== -->
+    <section id="resultStep" class="card hidden">
 
-    <section id="commitmentStep" class="card hidden">
+      <div class="result-icon">🎉</div>
 
-      <div class="step-badge">
-        STEP 4 · 실천 다짐
-      </div>
-
-
-      <div class="section-icon">
-        ✍️
-      </div>
-
-
-      <h2>
-        성폭력 예방 실천 다짐
-      </h2>
-
+      <h2>퀴즈 완료!</h2>
 
       <p class="step-description">
-        안전하고 존중받는 학교문화를 위해
-        다음 내용을 실천하겠습니다.
+        확인 퀴즈 결과입니다.
       </p>
 
 
-      <div class="commitment-list">
+      <div class="score-circle">
 
-        <label>
+        <strong id="scoreText">
+          100
+        </strong>
 
-          <input type="checkbox" class="commitment">
+        <span>점</span>
 
-          <span>
-            상대방의 의사와 경계를 존중하겠습니다.
-          </span>
-
-        </label>
+      </div>
 
 
-        <label>
+      <div class="result-detail">
 
-          <input type="checkbox" class="commitment">
-
-          <span>
-            성희롱과 성폭력 예방을 위해 노력하겠습니다.
-          </span>
-
-        </label>
-
-
-        <label>
-
-          <input type="checkbox" class="commitment">
-
-          <span>
-            안전하고 존중받는 학교문화를 만들겠습니다.
-          </span>
-
-        </label>
+        <strong id="resultMessage">
+          교육 내용을 잘 이해하셨습니다!
+        </strong>
 
       </div>
 
@@ -762,79 +461,63 @@
         class="primary-button"
         id="commitmentButton"
       >
-        실천 다짐 완료 →
+        실천 다짐 작성 →
       </button>
 
     </section>
 
 
+    <!-- =====================================
+         STEP 7 : 실천 다짐
+    ====================================== -->
 
-    <!-- =====================================================
-         STEP 11 · 만족도 조사
-    ===================================================== -->
-
-    <section id="surveyStep" class="card hidden">
+    <section id="commitmentStep" class="card hidden">
 
       <div class="step-badge">
-        STEP 5 · 만족도 조사
+        STEP 7 · 실천 다짐
       </div>
 
+      <div class="section-icon">✍️</div>
 
-      <div class="section-icon">
-        ⭐
-      </div>
+      <h2>성폭력 예방 실천 다짐</h2>
 
-
-      <h2>
-        교육 만족도 조사
-      </h2>
+      <p class="step-description">
+        안전하고 존중받는 학교 문화를 위해 함께 실천하겠습니다.
+      </p>
 
 
-      <div class="survey-card">
+      <div class="commitment-list">
 
-        <label for="satisfaction">
-          이번 교육의 만족도는 어떠셨습니까?
+        <label>
+          <input type="checkbox" class="commitmentCheck">
+          <span>
+            상대방의 의사와 경계를 존중하겠습니다.
+          </span>
         </label>
 
 
-        <select id="satisfaction">
-
-          <option value="">
-            선택해 주세요
-          </option>
-
-          <option>
-            매우 만족
-          </option>
-
-          <option>
-            만족
-          </option>
-
-          <option>
-            보통
-          </option>
-
-          <option>
-            불만족
-          </option>
-
-        </select>
-
-      </div>
-
-
-      <div class="survey-card">
-
-        <label for="opinion">
-          개선 의견 (선택)
+        <label>
+          <input type="checkbox" class="commitmentCheck">
+          <span>
+            불편함을 줄 수 있는 언행을 하지 않겠습니다.
+          </span>
         </label>
 
 
-        <textarea
-          id="opinion"
-          placeholder="의견을 자유롭게 작성해 주세요."
-        ></textarea>
+        <label>
+          <input type="checkbox" class="commitmentCheck">
+          <span>
+            피해자를 비난하지 않고 지지하겠습니다.
+          </span>
+        </label>
+
+
+        <label>
+          <input type="checkbox" class="commitmentCheck">
+          <span>
+            안전하고 존중받는 학교 문화를 만들겠습니다.
+          </span>
+        </label>
 
       </div>
 
@@ -842,25 +525,23 @@
       <button
         type="button"
         class="primary-button"
-        id="surveyButton"
+        id="completeEducationButton"
       >
-        교육 결과 확인 →
+        교육 이수 완료 →
       </button>
 
     </section>
 
 
-
-    <!-- =====================================================
-         STEP 12 · 결과
-    ===================================================== -->
+    <!-- =====================================
+         STEP 8 : 최종 완료
+    ====================================== -->
 
     <section id="completeStep" class="card hidden">
 
       <div class="completion-icon">
         🎉
       </div>
-
 
       <h2>
         교육 이수가 완료되었습니다
@@ -875,13 +556,8 @@
 
 
         <strong>
-          100점
-        </strong>
-
-
-        <p>
           교육 이수 완료
-        </p>
+        </strong>
 
 
         <p id="completedDate"></p>
@@ -889,29 +565,13 @@
       </div>
 
 
-      <div class="info-box">
-
-        <strong>
-          교육 이수 기록
-        </strong>
-
-        <p>
-          성폭력 예방교육 이수가 완료되었습니다.
-        </p>
-
-      </div>
-
-
       <p class="completion-thanks">
-        2026학년도 우신고등학교 교직원 성폭력 예방교육에
-        참여해 주셔서 감사합니다.
+        2026학년도 우신고등학교 교직원 성폭력 예방교육에 참여해 주셔서 감사합니다.
       </p>
 
     </section>
 
-
   </main>
-
 
 
   <footer>
@@ -926,12 +586,10 @@
 
   </footer>
 
-
 </div>
 
 
 <script src="app.js"></script>
 
 </body>
-
 </html>
